@@ -1,0 +1,50 @@
+# https 配置方法
+#server:
+#  port: 443
+#  ssl:
+#    key-password: 123456
+#    key-store: classpath:spring.keystore
+#    key-alias: spring
+
+# yml 默认配置文件位置（优先级高-->低）
+#file:./config/
+#file:./
+#classpath:/config/
+#classpath:/
+
+spring:
+  profiles:
+    active: dev
+
+#对象设置
+person:
+  lastName: zhangsan
+  #  last-name: zhangsan
+  age: 20
+  boss: false
+  birth: 2019/12/12
+  maps: {k1: v1,k2: v2}
+  lists: # List,Set
+    - lisi
+    - zhaoliu
+    - wangwu
+  dog:
+    name: 小狗
+    age: 2
+
+
+#对象设置 行内写法
+persons: {lastName: zhangsan,age: 20}
+# List,Set 行内写法
+pet: [cat,dog,pig]
+
+---
+server:
+  port: 80
+spring:
+  profiles: dev
+---
+server:
+  port: 8084
+spring:
+  profiles: prod
